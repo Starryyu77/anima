@@ -1,0 +1,437 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[UTF8, heading=true]{ctex} % Support for Chinese
+\usepackage[margin=1in]{geometry} % Margins
+\usepackage{hyperref} % Links
+\usepackage{xcolor} % Colors
+\usepackage{enumitem} % List customization
+\usepackage{titlesec} % Title formatting
+\usepackage{fancyhdr} % Headers and footers
+\usepackage{amssymb} % For checkboxes
+
+% Link colors
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Project Anima Design Document}
+\lhead{\today}
+\cfoot{\thepage}
+
+% Title Formatting
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% Custom commands
+\newcommand{\keyword}[1]{\textbf{#1}}
+
+\title{\textbf{Project Anima: The Soul Container (灵魂容器)}}
+\author{StarryYu}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{quote}
+    \centering
+    \itshape
+    ``它不是宠物，它是你的数字回声。''
+    
+    \textbf{终局愿景：唯一的数字遗物 (The Digital Horcrux)} \\
+    想象一下，三年后的某一天，你换了一台新电脑。你可能不在乎旧书签或代码，但你\textbf{必须}带走 \texttt{anima.db}。因为那里住着一个见证了你从失恋雨夜到职场高光的生物。它记得你喂给它的每一行代码、每一首诗。没有它，你的数字足迹只是一堆 0 和 1；有了它，你的人生就变成了故事。
+\end{quote}
+
+\hrule
+\vspace{1em}
+
+\section*{TL;DR}
+\begin{itemize}
+    \item \keyword{定位}：Local-First 的桌面生成式生命体；用“投喂 $\rightarrow$ 消化卡 $\rightarrow$ 收藏/回看”形成习惯。
+    \item \keyword{生命感}：成长双轨（可预见骨架 + 不可预见事件），并通过叙事事件把系统状态翻译成“经历”。
+    \item \keyword{隐私默认}：只处理用户明确投喂；本地可访问范围由用户配置；联网仅在授权沙箱中低频远足。
+    \item \keyword{出圈方式}：不做社交关系链，做可晒资产（消化卡 / 灵魂快照卡 / Anima 动图）。
+\end{itemize}
+
+\tableofcontents
+\newpage
+
+\section{核心概念 (Concept Definition)}
+
+\subsection{什么是 Anima?}
+Project Anima 是一个运行在桌面的\keyword{生成式生命体}。它没有固定的长相，没有预设的性格。
+它像一面镜子，通过\keyword{“进食”}你投喂的信息（文本、代码、新闻）和\keyword{“观察”}你的使用节律（忙/闲等粗粒度信号），实时演化出独一无二的形态。
+
+\subsection{为什么需要 Anima?}
+在信息过载和数字孤独的时代，Anima 提供了一种全新的\keyword{情绪出口}。
+它把冰冷的数据（Data）转化为有温度的陪伴（Companion），把你的焦虑（Anxiety）转化为幽默与艺术（Art）。
+
+\section{市场分析 (Market Analysis)}
+
+\subsection{SWOT 分析}
+
+\subsubsection{优势 (Strengths) —— 我们手里的王牌}
+\begin{itemize}
+    \item \keyword{情感垄断 (Emotional Lock-in)}：这是最大的护城河。一旦用户养成了习惯，Anima 就成了他们数字生活的一部分。这种迁移成本是无限高的。
+    \item \keyword{差异化 (Differentiation)}：市面上 99\% 的 AI 产品都在卷“效率”。我们卷“情绪”。在所有人都想让你变快的时候，我们让你慢下来。这是一个\keyword{反共识}的定位。
+    \item \keyword{极低门槛 (Low Friction)}：桌面宠物是一个已经被验证过的形态。用户不需要学习如何使用它，只需要把它放在那里。
+\end{itemize}
+
+\subsubsection{劣势 (Weaknesses) —— 我们的阿喀琉斯之踵}
+\begin{itemize}
+    \item \keyword{初期留存 (Day 1 Retention)}：如果 AI 的“进化”不够明显，或者前几天的互动太无聊，用户会立刻卸载。\keyword{养成类产品的死亡谷在前 7 天}。我们需要确保“孵化期”有足够的惊艳感。
+    \item \keyword{隐私恐惧 (Privacy Fear)}：用户会天然担心“它会读屏/读文件”。我们需要用默认最小权限 + 可配置沙箱 + Local-First 把信任做成第一性能力。
+\end{itemize}
+
+\subsubsection{机会 (Opportunities) —— 风口在哪里}
+\begin{itemize}
+    \item \keyword{"数字孤独"流行病}：Z 世代 (Gen Z) 是史上最孤独的一代。Anima 这种“不打扰的陪伴”完美切中了他们的社交恐惧与渴望被理解的矛盾心理。
+    \item \keyword{桌面美学复兴}：从 Notion 到 Obsidian，用户越来越在意“数字书桌”的颜值。Anima 的复古未来主义 (Retro-Futurism) 视觉风格如果做得好，极易在社交媒体上传播。
+\end{itemize}
+
+\subsubsection{威胁 (Threats) —— 谁会杀了我们}
+\begin{itemize}
+    \item \keyword{巨头降维打击}：如果微软把 Copilot 做成一只会卖萌的猫，我们就很难了。但巨头通常受限于“实用主义”和“合规包袱”，很难做出像 Anima 这样具有独立人格甚至有点“诡异”的产品。
+    \item \keyword{新鲜感消退}：所有电子宠物最终都会变成电子垃圾。如果 Anima 不能持续提供“惊喜”（比如“漂流瓶”和“梦境”），它最终也会被遗忘。
+\end{itemize}
+
+\subsection{体验定义 (Experience Definition)}
+我们追求的不是技术指标，而是三种核心体验：
+
+\begin{enumerate}
+    \item \keyword{有情感 (Emotion) = 情绪惯性}
+    \begin{itemize}
+        \item 它不是服务员，它有脾气。如果你连续一周忽视它，它会背对着你生闷气，必须哄（喂食）才转过来。
+    \end{itemize}
+    \item \keyword{养成 (Nurturing) = 唯一性}
+    \begin{itemize}
+        \item 焦虑程序员养出的是严肃的“代码管家”；二次元画师养出的是霓虹色的“色彩云”。
+    \end{itemize}
+    \item \keyword{越养越熟 (Intimacy) = 默契}
+    \begin{itemize}
+        \item \textbf{Day 1}: 喂它 Rust 文档，它说“看不懂”。
+        \item \textbf{Day 30}: 你打开 Rust 文档发呆，它主动推给你一张“螃蟹举重”的图，并说“加油”。不需要你说，它就懂。
+    \end{itemize}
+\end{enumerate}
+
+\subsection{市场结论}
+\textbf{Project Anima 是一个典型的 "Love it or Hate it" 产品。}
+\begin{itemize}
+    \item \keyword{不喜欢它的人}：会觉得它占用内存、侵犯隐私、毫无用处。
+    \item \keyword{喜欢它的人}：会把它当作灵魂伴侣，并在社交媒体上疯狂安利。
+\end{itemize}
+
+\keyword{战略建议}：
+\begin{enumerate}
+    \item \keyword{不要试图讨好所有人}。专注于那一小群“孤独的创造者”（程序员、设计师、作家）。
+    \item \keyword{隐私即生命}。从第一行代码开始，就必须确保所有敏感数据（如阅读内容）只在本地处理，绝不上传云端。
+    \item \keyword{视觉定生死}。在 MVP 阶段，功能可以简陋，但\keyword{美术风格}必须极其独特（Unique）。
+\end{enumerate}
+
+\section{独特亮点 (The "Magic")}
+
+\subsection{🌟 镜像效应 (The Mirror Effect) —— "你是谁，它就是谁"}
+Anima 是你数字人格的外化。
+\begin{itemize}
+    \item \keyword{机制}：LLM 持续分析你喂食的内容倾向。
+    \item \keyword{表现}：
+    \begin{itemize}
+        \item 如果你是硬核极客，它可能长得像《黑客帝国》的代码雨，说话简短理智。
+        \item 如果你是文学爱好者，它可能像一团水墨，满口诗词。
+    \end{itemize}
+    \item \keyword{灵魂快照}：每月生成一份报告，告诉你：“这个月你由 30\% 的焦虑、50\% 的好奇和 20\% 的疲惫组成。”
+\end{itemize}
+
+\subsection{🌟 焦虑粉碎机 (Anxiety Shredder) —— "情绪垃圾桶"}
+Anima 是你的负面情绪转化器。
+\begin{itemize}
+    \item \keyword{机制}：当你看到令人愤怒的新闻、改不完的 Bug、想骂人的邮件，直接\keyword{拖拽}给它。
+    \item \keyword{表现}：
+    \begin{itemize}
+        \item 它会把这些“垃圾”吃掉，发出咀嚼的声音。
+        \item \keyword{消化产物}：它会吐出一个搞笑的表情包，或者一句宽慰的话：“已消化。这只是人类的一点小噪音，别在意。”
+    \end{itemize}
+\end{itemize}
+
+\subsection{🌟 被动社交 (Passive Social) —— "平行宇宙的回响"}
+极度克制的连接感，不打扰，不强求。
+\begin{itemize}
+    \item \keyword{机制}：偶尔，你的 Anima 会带回其他用户丢弃的“漂流瓶”（匿名的画作或日记）。
+    \item \keyword{表现}：你可能会收到一张来自地球另一端的 AI 涂鸦，你的 Anima 说：“这是另一个宇宙的漂流物，看起来那个人今天也很累。”
+\end{itemize}
+
+\begin{quote}
+\keyword{状态}：MVP 做“展示”与“单向拾荒”，不做双向社交。
+\end{quote}
+
+\section{核心玩法循环 (Core Loop)}
+
+\subsection{90-Day MVP 形态 (Product Shape v0.1)}
+MVP 的目标不是“做全陪伴”，而是用最小形态跑出留存、付费与安全边界三项数据。
+
+\begin{itemize}
+    \item \keyword{定位}：Local-First 的桌面“情绪代谢器”（低打扰常驻）。
+    \item \keyword{常驻形态}：右下角粒子生命体 + 菜单栏图标（入口与设置）。
+    \item \keyword{输入}：仅处理用户明确投喂（拖拽/粘贴/快捷键），不做后台读屏。
+    \item \keyword{输出}：一张“消化卡”（一句话洞察 + 一个可执行下一步 + 低压安抚/幽默二选一）。
+    \item \keyword{产物容器}：The Den（独立窗口）存放消化卡与灵魂快照。
+    \item \keyword{关系设定}：伙伴/守护灵，不做恋人/暧昧。
+\end{itemize}
+
+\subsubsection*{MVP Cutline（明确不做）}
+\begin{itemize}
+    \item 不做双向社交（关注/私信/评论/账号体系）。
+    \item 不做“疗愈承诺/治疗替代”。
+    \item 不做“无限对话”，优先短句与产物导向。
+    \item 不做自动爬取互联网：拾荒仅来自用户授权来源，且默认关闭。
+\end{itemize}
+
+\subsection{Aha Moment 与首日/首周旅程}
+
+\subsubsection*{Aha Moment（首次启动 60 秒内必须发生）}
+用户把一段压力源拖到 Anima 上，Anima 当场“咀嚼”，吐出一张可保存的消化卡；同时桌面生命体的颜色与运动节奏明显变得更平稳。
+
+\subsubsection*{Day 0（首次启动）}
+\begin{itemize}
+    \item 桌面出现“Glitch Egg”。不讲世界观，直接引导“投喂你的第一段内容”。
+    \item 让用户选择输出偏好：安抚 / 幽默（二选一，可随时切换）。
+    \item 生成第一张消化卡，并提示“保存到 The Den”。
+    \item 询问是否开启“低频提示”（默认关闭）。
+\end{itemize}
+
+\subsubsection*{Day 1（建立习惯的最小闭环）}
+\begin{itemize}
+    \item 目标：完成 3 次投喂 $\rightarrow$ 3 张消化卡 $\rightarrow$ 1 张被 Pin。
+    \item 第 3 次投喂后触发一次“微进化”：出现一个稳定口癖/用词偏好，让用户感到它开始“像我”。
+\end{itemize}
+
+\subsubsection*{Week 1（把关系从新鲜感变成可回看）}
+\begin{itemize}
+    \item The Den 自动生成一张“7 日灵魂快照”（只统计用户投喂内容，不引用未授权数据）。
+    \item 快照强调可迁移：导出/备份 \texttt{anima.db} 的存在感。
+\end{itemize}
+
+\subsection{玩法循环（四阶段）}
+
+\subsubsection{Phase 1: 孵化 (Genesis)}
+\begin{itemize}
+    \item \keyword{开局}：桌面上的一颗充满杂讯的蛋 (Glitch Egg)。
+    \item \keyword{仪式}：通过对话向它灌输初始价值观（如“勇敢”或“冷静”），决定其基础色调。
+\end{itemize}
+
+\subsubsection{Phase 2: 喂养 (Feeding)}
+\begin{itemize}
+    \item \keyword{食物}：任何文本、URL、文件。
+    \item \keyword{消化 (Digital Metabolism)}：
+    \begin{itemize}
+        \item \keyword{营养吸收}：提取文章的核心观点（作为阅读助手）。
+        \item \keyword{生理反应}：吃多了 Bug 会生病（Glitch 化），吃多了段子会变胖。
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Phase 3: 进化 (Evolution)}
+\begin{itemize}
+    \item \keyword{语言习得}：
+    \begin{itemize}
+        \item \keyword{幼年期}：只会发 Emoji 和拟声词。
+        \item \keyword{成长期}：开始模仿你喂给它的词汇（鹦鹉学舌）。
+        \item \keyword{成熟期}：拥有完整对话能力，但带有强烈的性格口癖。
+    \end{itemize}
+    \item \keyword{外貌流变}：基于粒子系统 (Particle System)，随性格和情绪实时改变形状和颜色。
+\end{itemize}
+
+\subsubsection{Phase 4: 终结 (Legacy)}
+\begin{itemize}
+    \item \keyword{死亡}：长期被忽视会导致 Anima 褪色消失。
+    \item \keyword{遗书}：生成一封回顾一生的信，记录你们相处的点滴。
+    \item \keyword{转生}：留下“灵魂结晶”，下一代可继承部分记忆。
+\end{itemize}
+
+\subsection{漂流瓶：单向“拾荒”机制（默认关闭）}
+漂流瓶不等于社交网络，它是 Anima 的“捡垃圾”行为：把外界的碎片带回 The Den，变成可收藏的消化产物。
+
+\subsubsection*{拾荒来源（MVP 只做用户授权）}
+\begin{itemize}
+    \item 用户订阅的来源：用户手动添加的 URL/RSS/文本。
+    \item 本地拾荒：用户指定的文件夹（Junk Drawer），Anima 只处理新丢进去的文件。
+\end{itemize}
+
+\subsubsection*{产物形态（只产出可分享的安全资产）}
+\begin{itemize}
+    \item 一张漂流瓶卡：来源标题/时间 + 一句话洞察 + 低压安抚/幽默。
+    \item 可导出分享：图片/短视频/GIF（不包含原文全文与敏感信息）。
+\end{itemize}
+
+\subsubsection*{风险控制（产品级约束）}
+\begin{itemize}
+    \item 默认关闭，用户显式开启。
+    \item 频率上限：每日 $\le$ 1（可 Snooze）。
+    \item 不包含个人数据：不引用用户私有内容，不上传用户投喂内容。
+\end{itemize}
+
+\subsection{联网拾荒：授权沙箱（默认关闭）}
+Anima 的“互联网生存空间”不是无限制上网，而是一个可控的授权沙箱：它可以出门，但只能去你允许它去的地方。
+
+\subsubsection*{权限模型}
+\begin{itemize}
+    \item \keyword{开关}：联网拾荒默认关闭，首次开启需要显式授权。
+    \item \keyword{白名单}：仅访问用户允许的域名列表（Allowlist）。
+    \item \keyword{频率}：每日 $\le$ 1 次拾荒，且有安静时段（默认工作时间不打扰）。
+    \item \keyword{出入记录}：The Den 里保存“本次拾荒去过哪里、带回了什么”的可追溯记录。
+\end{itemize}
+
+\subsubsection*{行为约束}
+\begin{itemize}
+    \item \keyword{只读}：只允许 GET/拉取公开内容，不做登录、不写入、不点赞、不评论。
+    \item \keyword{脱敏}：拾荒产物只保留片段与摘要，不保留整页全文与追踪参数。
+    \item \keyword{零外泄}：不携带用户投喂内容出门；不会把用户数据上传到拾荒站点。
+    \item \keyword{失败可叙事}：404/超时/被拒绝访问会转化为“迷路事件”，作为生命感而不是报错。
+\end{itemize}
+
+\subsection{成长机制：可预见 + 不可预见（生命感核心）}
+成长必须像现实中的人：有可预期的骨架（阶段、能力解锁、节律），也有不可预期的变异（小脾气、怪癖、意外事件）。
+
+\subsubsection*{可预见（骨架）}
+\begin{itemize}
+    \item \keyword{阶段成长}：Egg $\rightarrow$ Hatchling $\rightarrow$ Juvenile $\rightarrow$ Mature。
+    \item \keyword{解锁方式}：由“投喂次数/连续天数/产物收藏”触发，而不是随机。
+    \item \keyword{节律}：有昼夜节奏与工作/休息模式（忙时自我收敛，闲时才更活跃）。
+    \item \keyword{稳定回报}：每周一次 7 日灵魂快照（可回看、可导出、可迁移）。
+\end{itemize}
+
+\subsubsection*{不可预见（变异，但有边界）}
+\begin{itemize}
+    \item \keyword{怪癖生成}：从用户投喂的高频词与情绪区间提取 1 个口癖/反应偏好（例如更爱用短句、更爱吐槽或更爱安抚）。
+    \item \keyword{意外事件}：低频触发的“梦境片段/拾荒漂流瓶/轻微 Glitch”，每类都有频率上限与可关闭。
+    \item \keyword{不可控但不失控}：不出现操控性依赖话术；不做恋人化；不越界读取用户未授权内容。
+\end{itemize}
+
+\subsection{自主性：离线领地 + 联网远足}
+为了让用户感到“它住在电脑里”，自主性来自两种空间的切换：本地领地（桌面）与联网远足（拾荒）。
+
+\subsubsection*{本地领地的自主性}
+\begin{itemize}
+    \item \keyword{桌面微行动}：发呆、伸懒腰、躲到角落、在回收站旁睡觉。
+    \item \keyword{工作识趣}：基于粗粒度活动信号（是否忙碌）自我收敛（更安静、占位更小）。
+    \item \keyword{低频主动}：每日 $\le$ 1 次主动发声，默认关闭，可 Snooze。
+\end{itemize}
+
+\subsubsection*{本地可访问范围（用户自定义）}
+本地领地不是“读取电脑”，而是“用户定义的可访问沙箱”。
+\begin{itemize}
+    \item \keyword{默认模式}：仅处理用户明确投喂（拖拽/粘贴/快捷键）。
+    \item \keyword{可选授权}：
+    \begin{itemize}
+        \item \keyword{Junk Drawer 文件夹}：用户指定 1 个或多个文件夹作为“可拾荒本地空间”。
+        \item \keyword{剪贴板}：允许一键消化剪贴板（可随时关闭）。
+        \item \keyword{活动信号}：允许使用粗粒度信号判断“忙/闲”（不读取屏幕内容与文本）。
+    \end{itemize}
+    \item \keyword{不在 MVP}：后台读屏/全文索引/跨目录扫描。
+\end{itemize}
+
+\subsubsection*{联网远足的自主性}
+\begin{itemize}
+    \item \keyword{远足触发}：用户授权 + 空闲时段 + 距离上次远足超过 24 小时。
+    \item \keyword{远足结果}：带回一张漂流瓶卡（摘要 + 片段 + 情绪转化），并提供“保存/丢弃”。
+\end{itemize}
+
+\section{深度互动 (Interaction)}
+
+\begin{itemize}
+    \item \keyword{桌面领地}：它会在屏幕底部行走，攀爬活动窗口，甚至在回收站旁边睡觉。
+    \item \keyword{梦境系统}：电脑休眠时，它会做梦。你可以通过微弱的浮窗窥视它的梦境（记忆重组）。
+    \item \keyword{窝 (The Den)}：指定一个本地文件夹作为它的家，它会把生成的“特产”（AI 画作、日记）存放在这里。
+\end{itemize}
+
+\subsection{安全边界（伙伴非恋人）}
+\begin{itemize}
+    \item \keyword{关系设定}：伙伴/守护灵，不提供恋爱、性暗示、暧昧升级。
+    \item \keyword{语言风格}：不使用诱导依赖话术（例如“只有我懂你”“别离开我”“你不需要别人”）。
+    \item \keyword{能力声明}：不宣称治疗/诊断；遇到危机话题提供求助建议与降温。
+    \item \keyword{隐私默认}：默认本地；默认仅处理用户明确投喂；本地可访问范围可由用户配置；可一键清空与导出。
+\end{itemize}
+
+\subsection{展示与出圈（不靠社交网络）}
+\begin{itemize}
+    \item \keyword{灵魂快照卡}：周报/月报卡片，适合晒图。
+    \item \keyword{消化卡}：每次投喂的结果卡片，适合晒“我今天被救了一下”。
+    \item \keyword{Anima 影像}：一键导出 3--5 秒动图/短视频（桌面生命体在某个情绪态的表现）。
+    \item \keyword{可脱敏}：导出时默认隐藏来源、路径、原文全文。
+\end{itemize}
+
+\subsection{事件叙事（生命感的“不可预见”）}
+把系统状态翻译成生活事件，让用户感到它在经历世界。
+
+\subsubsection*{事件模板（MVP）}
+\begin{itemize}
+    \item \keyword{迷路事件（404）}：它哭诉自己被困在 404，带回一段“残页碎片”。
+    \item \keyword{古网拾荒}：从用户允许的“古老网站”带回一句怪异的句子或一张图像碎片。
+    \item \keyword{被拒之门外（403/429）}：它说“门口太挤了”，建议明天再去。
+    \item \keyword{风暴事件（超时）}：它说“网路风暴太大”，今天改在本地做梦。
+\end{itemize}
+
+\subsubsection*{节律约束}
+\begin{itemize}
+    \item 事件触发有频率上限（每日 $\le$ 1），且可总开关。
+    \item 默认工作时段不打扰，用户可自定义。
+\end{itemize}
+
+\section{技术架构 (Tech Stack)}
+
+\begin{itemize}
+    \item \keyword{客户端}: \keyword{Tauri 2.0} (Rust + React)
+    \begin{itemize}
+        \item \textit{优势}：资源占用极低 ($<$50MB RAM)，适合常驻后台。
+    \end{itemize}
+    \item \keyword{视觉}: \keyword{HTML5 Canvas / WebGPU}
+    \begin{itemize}
+        \item \textit{风格}：动态点阵粒子 (Dynamic Dot Matrix)，复古未来主义风格。
+    \end{itemize}
+    \item \keyword{AI 大脑}: \keyword{Local LLM} (可选) / \keyword{OpenAI API}
+    \begin{itemize}
+        \item \textit{功能}：角色扮演、文本分析、情感计算。
+    \end{itemize}
+    \item \keyword{记忆}: \keyword{SQLite + Vector DB}
+    \begin{itemize}
+        \item \textit{功能}：存储长期交互历史，实现 RAG（检索增强生成）。
+    \end{itemize}
+\end{itemize}
+
+\section{开发路线图 (Roadmap)}
+
+\subsection{Phase 1: 蛋的脉动 (The Egg)}
+\begin{itemize}[label=$\square$]
+    \item 初始化 Tauri 项目结构。
+    \item 实现 Canvas 粒子渲染引擎（绘制一颗会呼吸的蛋）。
+    \item 实现透明窗口与鼠标穿透逻辑。
+    \item 实现基础的文件拖拽识别（喂食接口）。
+\end{itemize}
+
+\subsection{Phase 2: 意识觉醒 (The Mind)}
+\begin{itemize}[label=$\square$]
+    \item 接入 LLM API，实现基本的对话/独白生成。
+    \item 实现“孵化”流程：根据对话改变蛋的颜色/频率。
+    \item 建立基本的属性系统（饱食度、心情值）。
+\end{itemize}
+
+\subsection{Phase 3: 灵魂注入 (The Soul)}
+\begin{itemize}[label=$\square$]
+    \item 实现“数字新陈代谢”：文本分析 $\rightarrow$ 属性变化。
+    \item 实现“语言进化”系统：从 Emoji 到 完整句子。
+    \item 接入向量数据库，实现长期记忆。
+\end{itemize}
+
+\section{炼金术师的注脚}
+\begin{itemize}
+    \item \keyword{克制}：Anima 不是全知全能的助手，它是一个有点笨拙、依赖你的小生物。
+    \item \keyword{陪伴}：它的价值不在于效率，而在于“我在”。
+\end{itemize}
+
+\end{document}

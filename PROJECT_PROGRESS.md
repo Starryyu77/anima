@@ -3,16 +3,16 @@
 > **Mission**: Build a "Digital Soul Container" - an AI-powered desktop companion that evolves based on user interaction.
 
 ## 📋 IC Memo Dashboard
-- **Verdict**: 🟡 WATCH
-- **核心判断**: 赛道热，但分发、合规与成本三座大山；必须先用数据证明留存与付费。
+- **Verdict**: 🟡 WATCH (Risk Increased)
+- **核心判断**: 概念性感，但护城河正在崩塌。竞品（Momo, AnythingLLM）已抢跑，"Local-First" 已成标配而非卖点。
 - **Deal Breakers**:
-  - 缺少可防守的护城河："镜像效应"与"养成"容易被复制，Local-First 只是架构选择不是壁垒。
-  - 单元经济不清：LLM 推理成本 vs 订阅/买断收入的数学未验证。
-  - 合规与安全风险高：情感陪伴产品在未成年人、依赖与隐私上会被重点盯防。
+  - **竞品已融资**: "First Voyage" (Momo) 刚融了 $2.5M 做类似的事（Self-care pet）。你拿什么跟有钱的对手打？
+  - **"Local" 祛魅**: AnythingLLM Desktop 已经把"本地文档+RAG"做到了极致。单纯的"本地隐私"不再是痛点，而是基建。
+  - **留存黑箱**: "镜像效应"听起来很酷，但如果用户三天不喂食，它怎么活？缺乏强刺激机制。
 - **90 天要验证的三件事**:
-  - D7 / D30 留存与日均交互（证明不是“看两天就腻”的桌宠）。
-  - 付费转化与 ARPPU（证明不是“情怀产品”。）
-  - 明确定位“伙伴而非恋人”的安全边界（降低监管与舆情爆雷概率）。
+  - **差异化体验**: 必须证明"镜像"比"宠物"更有趣（A/B Test 验证）。
+  - **病毒传播**: 只有"灵魂快照"能刷屏，才能抵消 Momo 的投放优势。
+  - **Tech Demo**: 必须立刻拿出粒子渲染 Demo，证明视觉风格不可替代。
 
 ## 🧩 Product Shape v0.1 (90-Day MVP)
 - **定位**: Local-First 的桌面“情绪代谢器”，低打扰常驻。
@@ -31,12 +31,12 @@
   - 不做后台读屏/全量监听（只处理用户明确投喂的内容）。
   - 不做自动爬取互联网（漂流瓶仅做用户授权来源的单向“拾荒”，默认关闭）。
 
-## � Internet Habitat (Controlled)
+## 🌐 Internet Habitat (Controlled)
 - **核心设定**: 电脑本地 + 互联网是 Anima 的生存空间，但联网必须是授权沙箱。
 - **联网能力**: 仅访问用户允许的域名白名单，低频远足（每日≤1），只读拉取公开内容。
 - **叙事机制**: 404/超时/拒绝访问会转化为“迷路事件”，产出漂流瓶卡而不是报错。
 
-## �� Unique Selling Points (The "Why")
+## 🦄 Unique Selling Points (The "Why")
 - **镜像效应 (The Mirror Effect)**: Anima is an externalization of your digital persona. "You are what you feed it."
 - **焦虑粉碎机 (Anxiety Shredder)**: Feed it negative news/bugs, it digests them into comfort or humor.
 - **被动社交 (Passive Social)**: "Drift Bottles" from parallel universes (other users' Anima byproducts).
@@ -44,6 +44,25 @@
 ---
 
 ## 📅 Status Log
+
+### [2026-01-23] Strategy Pivot: The Digital Mirror
+- **Status**: 🔄 In Progress
+- **Decision**: 
+  - **Pivot**: Shift from "Desktop Pet" to "Digital Mirror & Legacy Art".
+  - **Key Feature Added**: "Dreamscape Screensaver" (Anima takes over when idle).
+  - **Differentiation**: 
+    - Momo = Self-care Coach (Utility).
+    - Anima = Emotion Alchemist (Art).
+- **Next Steps**:
+  - [ ] Create `concept_proof.html` to validate "Particle Egg" visuals (since local dev env is missing).
+  - [ ] Define the "Alchemist Algorithm" (Input: Anxiety -> Output: Art).
+
+### [2026-01-23] Market Reality Check
+- **Status**: ⚠️ Warning
+- **Outcome**: 
+  - **Competitor Alert**: "First Voyage" raised $2.5M for "Momo" (Habit-building pet). Direct threat.
+  - **Tech Commoditization**: "AnythingLLM Desktop" dominates the "Local RAG" space. We cannot compete on utility.
+  - **Strategic Pivot**: Shift focus from "Local Tool" to "Digital Legacy/Art". The "Visuals" and "Narrative" are the only defensible moats left.
 
 ### [2026-01-22] Conceptualization Complete
 - **Status**: ✅ Done
