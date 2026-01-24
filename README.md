@@ -21,25 +21,41 @@
 
 ## 📚 文档索引 (Documentation)
 
-项目已完成详尽的概念设计与技术规划，核心文档如下：
+项目已完成详尽的概念设计与技术规划，所有文档归档于 `docs/` 目录：
 
-*   **[创业白皮书 (Whitepaper)](./startup_whitepaper_anima.md)**: 项目愿景、商业模式与核心定义。
-*   **[游戏机制设计 (Game Mechanics)](./game_mechanics.md)**: 详细的数值系统、情感算法与死亡机制。
-*   **[视觉与形态设计 (Appearance Design)](./appearance_design.md)**: 视觉风格、交互形态与美术规范。
-*   **[技术路线图 (Technical Roadmap)](./technical_roadmap.md)**: 架构设计、技术选型与开发阶段规划。
-*   **[项目进度 (Progress)](./PROJECT_PROGRESS.md)**: 当前开发状态与待办事项。
+### 核心规范 (Specs)
+*   **[游戏机制设计 (Game Mechanics)](./docs/specs/game_mechanics.md)**: 详细的数值系统、情感算法与死亡机制。
+*   **[视觉与形态设计 (Appearance Design)](./docs/specs/appearance_design.md)**: 视觉风格、交互形态与美术规范。
+*   **[设计规格说明 (Design Spec)](./docs/specs/design_spec.md)**: 完整的产品设计文档。
+*   **[系统架构 (System Architecture)](./docs/specs/system_architecture.md)**: 技术架构与模块设计。
+
+### 商业与规划 (Business & Planning)
+*   **[创业白皮书 (Whitepaper)](./docs/business/startup_whitepaper.md)**: 项目愿景、商业模式与核心定义。
+*   **[市场分析 (Market Analysis)](./docs/business/market_analysis.md)**: 竞品分析与市场机会。
+*   **[技术路线图 (Roadmap)](./docs/planning/technical_roadmap.md)**: 开发阶段与里程碑。
+*   **[项目进度 (Progress)](./docs/planning/project_progress.md)**: 当前状态追踪。
 
 ## 🛠️ 项目结构 (Structure)
 
-```
-.
-├── anima-web/              # Web 前端原型 (React + Vite + Tailwind)
-│   ├── src/components/     # 核心组件 (AnimaCore, TheEgg)
-│   └── src/shaders/        # WebGL/GLSL 着色器文件
-├── design_project_anima.md # 详细设计文档
-├── game_mechanics.md       # 数值与机制设计
-├── startup_whitepaper_anima.md # 创业白皮书
-└── ...
+```text
+/
+├── apps/                        # 核心应用程序代码
+│   └── anima-web/               # 主线 Web/Tauri 前端
+│
+├── assets/                      # 静态资源
+│   └── concepts/                # 设计图与演示视频
+│
+├── docs/                        # 项目文档中心
+│   ├── business/                # 商业与市场文档
+│   ├── planning/                # 规划与进度
+│   └── specs/                   # 详细设计规范
+│
+├── prototypes/                  # 技术验证原型
+│   ├── demo-01-jelly/           # 果冻效果原型
+│   ├── demo-02-react/           # 组件化尝试原型
+│   └── concept_proof.html       # 早期概念验证页面
+│
+└── README.md                    # 项目入口
 ```
 
 ## 🚀 快速开始 (Getting Started)
@@ -52,7 +68,7 @@
 
 ### 运行 Web 原型
 ```bash
-cd anima-web
+cd apps/anima-web
 npm install
 npm run dev
 ```
